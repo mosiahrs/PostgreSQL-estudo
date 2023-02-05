@@ -77,12 +77,13 @@ Solução:
     SELECT CONCAT(nome, ' STRING ', cargo) AS msg
     FROM fun WHERE deptnum = 10;
 
-	Saida:		+---------------------------+
-				| msg						|
+	Saida:		
 				+---------------------------+
-				| Fulano String Gerente 	|
-				| Beltrano String CEO    	|
-				| Ciclano String CTO      	|
+				| msg			    |
+				+---------------------------+
+				| Fulano String Gerente     |
+				| Beltrano String CEO       |
+				| Ciclano String CTO        |
 				+---------------------------+
 
 > No Postgres pode ser utilizado double pipe || para fazer a concatenção;
