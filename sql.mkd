@@ -1,0 +1,124 @@
+# PostgreSQL
+
+É um SGBD-OR (sistema gerenciador de banco de dados Objeto Relacional), é openSource.
+
+- Linguagem procedural 
+Em varias linguagens como JAVA.
+
+- Pouca manutenção.
+
+Ele é comparável ao BD ORACLE ou SQL SERVER da Mycrosoft.
+
+Documentação:
+https://www.postgresql.org/docs/
+
+# 
+
+<div align="center">
+
+### 			SQL - Strutcture Query Language
+</div>
+
+- **DML** - Linguagem de manipulação de dados:
+  *INSERT*, *UPDATE* e *DELETE*
+- **DDL** - Linguagem de Definição de Dados
+   *CREATE* e *DROP*
+ - **DCL** - Linguagem de controle de Dados
+   *GRANT* - autoriza ao usuário executar comandos
+   *REVOKE* - remove ou restringe a capacidade de um usuário executar comandos.
+ - **DTL** - Liguagem de transação de dados
+    *BEGIN WORK* (ou *BEGIN TRANSACTION*) - COMMIT - ROLLBACK
+  - **DQL** - Linguagem de Consulta de Dados
+     *SELECT* - é o principal comando SQL.
+
+
+Case-sensitive (Case sensitivity)
+
+#  Usando SELECT - 04 a 06
+
+    
+	--  Selecionando colunas pelo nome:
+	
+    SELECT nome_coluna1,nome_coluna2 FROM nome_tabela;
+
+	-- Selecionando todas as colunas:
+	
+    SELECT * FROM TABELA1;
+    
+    -- Selecionando de maneira mais específica:
+    
+    SELECT nome_coluna FROM tabela 
+    WHERE condicional OR outra_condicional
+
+
+**IS NOT NULL** - pode ser usado para fazer verificações para valores não nulos (ou nulos).
+
+**()** - Usar os parenteses para dividir os blocos de condição durante a busca, tabela verdade e etc...
+
+**nome_coluna AS apelido** - usando o *AS* podemos criar um apelido para a coluna durante a busca, e será apresentado o resultado com esse valor no "titulo" da coluna.
+
+> Esse valor, não é registrado na memória durante o filtro WHERE, para que seja possível deve-se adicionar essa consulta dentro de um bloco e fazer o filtro a partir desse bloco.
+
+Problema:
+
+    SELECT salario AS ganhos, comissao AS bonus 
+    FROM func WHERE ganhos < 5000;
+    
+    ERROR: 1054 : Unknown column 'ganhos' in 'where clause'
+
+Solução: 
+
+    SELECT * FROM
+    (SELECT salario AS ganhos, comissao AS bonus
+    FROM func) X WHERE ganhos < 5000;
+
+#### Concatenação - CONCAT
+
+    SELECT CONCAT(nome, ' STRING ', cargo) AS msg
+    FROM fun WHERE deptnum = 10;
+
+	Saida:		+---------------------------+
+				| msg						|
+				+---------------------------+
+				| Fulano String Gerente 	|
+				| Beltrano String CEO    	|
+				| Ciclano String CTO      	|
+				+---------------------------+
+
+> No Postgres pode ser utilizado double pipe || para fazer a concatenção;
+
+### Estruturas Condicionais - CASE WHEN 
+
+Estrutura de seleção IF ELSE, ex
+
+
+    CASE
+        WHEN _`boolean-expression`_ THEN
+          _`statements`_
+      [ WHEN _`boolean-expression`_ THEN
+          _`statements`_
+        ... ]
+      [ ELSE
+          _`statements`_ ]
+    END CASE;
+
+Exemplo:
+
+    SELECT nome,salario 
+	    CASE 
+		    WHEN salario <= 2000 THEN 'baixo'
+		    WHEN salario >= 4000 then 'alto'
+			ELSE 'medio'
+		END as resultado 
+	FROM func;
+	
+			+-------+----------+-------------+
+			| nome  | salario  |  resultado  |
+			+-------+----------+-------------+
+			| Jose  |    1500  |  	baixo	 |
+			| Joao  |    5000  |	alto     |
+			| Maria |    3000  |	medio    | 
+			+-------+----------+-------------+
+
+Parei na aula 06 - usando o comando select
+
