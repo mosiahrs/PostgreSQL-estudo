@@ -121,5 +121,12 @@ Exemplo:
 			| Maria |    3000  |	medio    | 
 			+-------+----------+-------------+
 
-Parei na aula 06 - usando o comando select
+### `COALESCE`
+A `COALESCE`função retorna o primeiro de seus argumentos que não é nulo. Nulo é retornado apenas se todos os argumentos forem nulos. Geralmente é usado para substituir um valor padrão por valores nulos quando os dados são recuperados para exibição.
+
+		SELECT coalesce(comissao, 0) FROM func;
+> A Coluna comissão será exibida, com todos os valores NULL substituídos por zero, que foi o argumento passado após a virgula.
+
+
+Parei na aula 7 order by
 
