@@ -30,6 +30,13 @@ https://www.postgresql.org/docs/
     *BEGIN WORK* (ou *BEGIN TRANSACTION*) - COMMIT - ROLLBACK
   - **DQL** - Linguagem de Consulta de Dados
      *SELECT* - é o principal comando SQL.
+     
+     
+<div align="center">
+
+![image](https://user-images.githubusercontent.com/100864562/218334672-fe74b6c4-5c6a-4c40-b49b-df01c69652f8.png)
+
+</div>
 
 
 Case-sensitive (Case sensitivity)
@@ -77,12 +84,12 @@ Solução:
     SELECT CONCAT(nome, ' STRING ', cargo) AS msg
     FROM fun WHERE deptnum = 10;
 
-	Saida:		+---------------------------+
-				| msg						|
+	Saida:		        +---------------------------+
+				| msg	                    |
 				+---------------------------+
-				| Fulano String Gerente 	|
-				| Beltrano String CEO    	|
-				| Ciclano String CTO      	|
+				| Fulano String Gerente     |
+				| Beltrano String CEO       |
+				| Ciclano String CTO        |
 				+---------------------------+
 
 > No Postgres pode ser utilizado double pipe || para fazer a concatenção;
