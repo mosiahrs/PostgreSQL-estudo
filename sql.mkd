@@ -16,7 +16,7 @@ https://www.postgresql.org/docs/
 
 <div align="center">
 
-### 			SQL - Strutcture Query Language
+##	`SQL - Strutcture Query Language`
 </div>
 
 - **DML** - Linguagem de manipulação de dados:
@@ -34,7 +34,7 @@ https://www.postgresql.org/docs/
 
 Case-sensitive (Case sensitivity)
 
-#  Usando SELECT - 04 a 06
+##  Usando SELECT - 04 a 06
 
     
 	--  Selecionando colunas pelo nome:
@@ -77,18 +77,17 @@ Solução:
     SELECT CONCAT(nome, ' STRING ', cargo) AS msg
     FROM fun WHERE deptnum = 10;
 
-	Saida:		
+	Saida:		+---------------------------+
+				| msg						|
 				+---------------------------+
-				| msg			    |
-				+---------------------------+
-				| Fulano String Gerente     |
-				| Beltrano String CEO       |
-				| Ciclano String CTO        |
+				| Fulano String Gerente 	|
+				| Beltrano String CEO    	|
+				| Ciclano String CTO      	|
 				+---------------------------+
 
 > No Postgres pode ser utilizado double pipe || para fazer a concatenção;
 
-### Estruturas Condicionais - CASE WHEN 
+##  `Estruturas Condicionais - CASE WHEN`
 
 Estrutura de seleção IF ELSE, ex
 
@@ -121,12 +120,29 @@ Exemplo:
 			| Maria |    3000  |	medio    | 
 			+-------+----------+-------------+
 
-### `COALESCE`
+## `COALESCE`
 A `COALESCE`função retorna o primeiro de seus argumentos que não é nulo. Nulo é retornado apenas se todos os argumentos forem nulos. Geralmente é usado para substituir um valor padrão por valores nulos quando os dados são recuperados para exibição.
 
 		SELECT coalesce(comissao, 0) FROM func;
 > A Coluna comissão será exibida, com todos os valores NULL substituídos por zero, que foi o argumento passado após a virgula.
 
+ ## **`Union x Union All`**
+Duas formas de unir consultas, devendo trazer a mesma quantidade de colunas.
 
-Parei na aula 7 order by
+**Funcionalidade:** o union elimina os valores duplicados enquanto o union all não altera o result set.
 
+**Performance:** Em questão de performance o union all consome menos recurso computacional, mesmo o union trazendo menos dados. O processo de remoção de valores duplicados torna o union menos performático, sendo nesse caso necessário avaliar a situação específica para utilizar cada um deles.
+#
+**Not in:** Utilizado para verificar o que contem em uma tabela que não contem na outra.  
+
+**Distinct:** Tudo o que é único nas colunas referidas no SELECT.
+
+
+Combinando os dois:
+
+		SELECT DISTINCT DPTNUM FROM AREA 
+		WHERE DEPTNUM not in (SELECT DPTNUM FROM FUN);
+
+> Dessa forma a consulta retorna os valores únicos e que não se repetem em nas tabelas.
+
+  
