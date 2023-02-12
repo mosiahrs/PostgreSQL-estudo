@@ -152,6 +152,6 @@ Combinando os dois:
 
 > Dessa forma a consulta retorna os valores únicos e que não se repetem em nas tabelas.
 
-Operadores:
+#### Operadores:
 
 <img width="500px" src="https://user-images.githubusercontent.com/100864562/218342889-f45d1169-4715-4ea2-9e24-c111c4b8dbe4.png" />
