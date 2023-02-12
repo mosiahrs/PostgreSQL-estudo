@@ -78,6 +78,9 @@ Solução:
     SELECT * FROM
     (SELECT salario AS ganhos, comissao AS bonus
     FROM func) X WHERE ganhos < 5000;
+    
+<div align="center">
+<img width="500px" src="https://user-images.githubusercontent.com/100864562/218344280-3b4eaa2e-43bb-4ef6-9eff-09af463f0266.png" /></div>
 
 #### Concatenação - CONCAT
 
@@ -155,3 +158,6 @@ Combinando os dois:
 #### Operadores:
 
 <img width="500px" src="https://user-images.githubusercontent.com/100864562/218342889-f45d1169-4715-4ea2-9e24-c111c4b8dbe4.png" />
+
+
+
