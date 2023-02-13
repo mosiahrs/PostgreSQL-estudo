@@ -14,6 +14,18 @@ https://www.postgresql.org/docs/
 
 # 
 
+### SUMARY
+<ul>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#sql---strutcture-query-language" > SQL - SIGLAS </a> </li>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#usando-select---04-a-06" > SELECT </a> </li>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#concatena%C3%A7%C3%A3o---concat" > CONCAT </a> </li>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#estruturas-condicionais---case-when" > CASE WHEN </a> </li>	
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#coalesce" > COALESCE </a> </li>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#union-x-union-all" > UNION X UNIOM ALL </a> </li>
+	<li> <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#like"> LIKE </a> </li>
+</ul>
+
+
 <div align="center">
 
 ##	`SQL - Strutcture Query Language`
@@ -160,4 +172,21 @@ Combinando os dois:
 <img width="500px" src="https://user-images.githubusercontent.com/100864562/218342889-f45d1169-4715-4ea2-9e24-c111c4b8dbe4.png" />
 
 
+## **`LIKE`** 
+Serve para localizar(filtrar) padrões dentro de uma busca, utilizando % ou _ para referênciar o valor, por exemplo:
+	
+	SELECT nome FROM cliente
+	WHERE upper(nome) LIKE 'JOSE%'
+	
+> Nesse caso retorna qualquer valor que inicie com Jose e a partir disso, pode ser qualquer caracter ou string. O comando upper torna obrigatório o valor em Uppercase pra filtrar a busca.
 
+
+<div align="center">
+
+![image](https://user-images.githubusercontent.com/100864562/218344691-dcb7675c-3571-4c8b-8bcb-641e8d850cf5.png)
+
+</div>
+
+
+<p align="right">
+<a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#postgresql"> <img src="https://png.pngitem.com/pimgs/s/11-115907_transparent-oh-the-places-you-ll-go-balloon.png" width="80px" /> </a> <br> <strong>RETURN TO TOP</strong> </p>
