@@ -187,6 +187,83 @@ Serve para localizar(filtrar) padrões dentro de uma busca, utilizando % ou _ pa
 
 </div>
 
+#
+
+**`TRABALHANDO COM STRING`**
+Utilização do comando substr e utilizando sub consultas no from  da consulta, produto cartesiano.
+
+*não é algo muito utilizado, porém é um recurso a ser explorado*
+<br>
+
+		SELECT substr (e.NOME,iter.POSICAO,1) AS C
+		FROM (SELECT NOME FRM FUN NOME = 'JAIMES')e, 
+		(SELECT id as POSICAO FROM TABELA10) iter WHERE iter.POSICAO <= length(e.NOME);
+		
+		+--------+
+		|    C   |
+		+--------+
+		|    J   |
+		|    A   |
+		|    I   |
+		|    M   |
+		|    E   |
+		|    S   |
+		+--------+
+> Na tabela acima é criado uma tabela "virtual" com uma coluna chamada C, que está exibindo um caracter do que está iterando a exibição de cada POSICAO conforme a quantidade de caracteres do NOME, no caso 6 (JAIMES).
+
+![Por baixo dos panos ele vai pegar o item da posicao, comparar com o index do nome e substituir o produto cartesiano ](https://user-images.githubusercontent.com/100864562/219980776-7c93644c-7319-4cc4-85a1-9aedb530d37e.png)
+
+**Length**: utilizado para contar o comprimento, tamanho da string apontando suas posições através de index.
+
+**Replace**: Substtui caractere por outro.
+		
+		replace(COLUNA, 'x', 'y')
+
+**GROUP_CONCAT()**
+É uma função SQL que retorna uma String concatenando valores não nullos de um grupo.
+
+	-> SELECT pub_id,GROUP_CONCAT(DISTINCT cate_id)
+    -> FROM book_mast
+    -> GROUP BY pub_id;
+		+--------+--------------------------------+
+		| pub_id | GROUP_CONCAT(DISTINCT cate_id) |
+		+--------+--------------------------------+
+		| P001   | CA002,CA004                    | 
+		| P002   | CA003                          | 
+		| P003   | CA001,CA003                    | 
+		| P004   | CA005,CA002                    | 
+		| P005   | CA001,CA004                    | 
+		| P006   | CA005,CA001                    | 
+		| P007   | CA005,CA002                    | 
+		| P008   | CA005,CA004                    | 
+		+--------+--------------------------------+
+
+<br>
+
+**TRABALHANDO COM NÚMEROS**
+
+- Média -> AVG('coluna')
+		
+		SELECT avg(SALARIO) as media_salarial FROM FUN
+
+- Valor máximo ou minimo, para retornar o maior valor e o menor valor respectivamente.
+
+		max('coluna') , min('coluna')
+	> elas ignoram os valores nulos
+
+- Somar valores da coluna. 
+
+		sum('coluna')
+
+- Contar o numero de linhas em uma tabela/coluna.
+
+		count(*)
+	> Conta cada linha da tabela, independente da coluna, linhas NULL não são consideradas.
+
+
+
+
+
 
 <p align="right">
 <a href="https://github.com/mosiahrs/PostgreSQL-estudo/edit/main/sql.mkd#postgresql"> <img src="https://png.pngitem.com/pimgs/s/11-115907_transparent-oh-the-places-you-ll-go-balloon.png" width="80px" /> </a> <br> <strong>RETURN TO TOP</strong> </p>
