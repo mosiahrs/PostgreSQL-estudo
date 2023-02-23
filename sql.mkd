@@ -260,7 +260,15 @@ Utilização do comando substr e utilizando sub consultas no from  da consulta, 
 		count(*)
 	> Conta cada linha da tabela, independente da coluna, linhas NULL não são consideradas.
 
+- Não exibir valores nulos	da função de agregação, usando o comando Coalesce
+		
+		SELECT avg(coalesce(comissao,0)) as media_comissao 
+		FROM tabela funcionarios
+		WHERE deptnum= 30; 
 
+Media truncada: remover o maior valor e o menor valor, que destoam dos demais valores. Serve para obter uma média com maior precisão dos intervalos.
+
+> Podemos utilizar a função sum e tirando min e o ma,ou podemos utilizar not in passando as consultas com min ou max no argumento.
 
 
 
